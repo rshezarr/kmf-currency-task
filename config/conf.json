@@ -7,8 +7,8 @@
   "idle_timeout": 30,
   "db": {
     "driver": "sqlserver",
-    "host": "",
-    "port": 0,
+    "host": "localhost",
+    "port": 1433,
     "user": "kursUser",
     "pass": "kursPswd",
     "name": "TEST",
@@ -17,6 +17,6 @@
   },
   "national_bank": {
     "base_url": "https://nationalbank.kz",
-    "get_rates_method": "/rss/get_rates.cfm"
+    "rates_method": "/rss/get_rates.cfm"
   }
 }

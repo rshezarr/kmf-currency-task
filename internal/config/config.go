@@ -44,8 +44,12 @@ func (dbc *DBConfig) GetConnectionString() string {
 }
 
 type NationalBank struct {
-	BaseUrl        string `json:"base_url"`
-	GetRatesMethod string `json:"get_rates_method"`
+	BaseUrl     string `json:"base_url"`
+	RatesMethod string `json:"rates_method"`
+}
+
+func (n *NationalBank) GetFullURL() string {
+	return n.BaseUrl + n.RatesMethod
 }
 
 var Conf = &Configs{}
