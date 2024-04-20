@@ -1,0 +1,22 @@
+{
+  "port": "8080",
+  "host": "localhost",
+  "max_header_bytes": 1,
+  "read_timeout": 10,
+  "write_timeout": 10,
+  "idle_timeout": 30,
+  "db": {
+    "driver": "sqlserver",
+    "host": "",
+    "port": 0,
+    "user": "kursUser",
+    "pass": "kursPswd",
+    "name": "TEST",
+    "open_conns": 20,
+    "idle_conns": 8
+  },
+  "national_bank": {
+    "base_url": "https://nationalbank.kz",
+    "get_rates_method": "/rss/get_rates.cfm"
+  }
+}
