@@ -1,0 +1,85 @@
+definitions:
+  dto.ErrorResp:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  dto.SuccessResp:
+    properties:
+      code:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  entity.Currency:
+    properties:
+      adate:
+        type: string
+      code:
+        type: string
+      title:
+        type: string
+      value:
+        type: number
+    type: object
+info:
+  contact: {}
+  title: kmf tech task currency
+paths:
+  /currency/save/{date}:
+    get:
+      consumes:
+      - application/json
+      description: Метод для сохранение записей из НацБанка
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.SuccessResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+      summary: Сохранить записи
+      tags:
+      - SaveRates
+  /currency/save/{date}/{code}:
+    get:
+      consumes:
+      - application/json
+      description: Метод для получение записей из базы
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Currency'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.ErrorResp'
+      summary: Получить записи
+      tags:
+      - GetRates
+swagger: "2.0"

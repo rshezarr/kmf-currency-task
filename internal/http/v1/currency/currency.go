@@ -29,7 +29,7 @@ func NewCurrencyController(svc currency.CurrencyService) CurrencyController {
 //	@Summary		Сохранить записи
 //	@Description	Метод для сохранение записей из НацБанка
 //	@Tags			SaveRates
-//	@Accept			string
+//	@Accept			json
 //	@Produce		json
 //	@Success		200						{object}	dto.SuccessResp
 //	@Failure		400 					{object}	dto.ErrorResp
@@ -57,7 +57,7 @@ func (c *currencyCtrl) SaveRates(w http.ResponseWriter, r *http.Request) {
 //	@Summary		Получить записи
 //	@Description	Метод для получение записей из базы
 //	@Tags			GetRates
-//	@Accept			string
+//	@Accept			json
 //	@Produce		json
 //	@Success		200						{object}	entity.Currency
 //	@Failure		400 					{object}	dto.ErrorResp

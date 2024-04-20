@@ -4,6 +4,7 @@ import (
 	v1 "currency/internal/http/v1/currency"
 	"currency/internal/service"
 	"github.com/gorilla/mux"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"net/http"
 )
 
@@ -31,6 +32,8 @@ func NewController(svc service.Service) Controller {
 func (c *controller) StartRoutes() *mux.Router {
 	c.router.HandleFunc("/currency/save/{date}", c.currCtrl.SaveRates).Methods(http.MethodGet)
 	c.router.HandleFunc("/currency/{date}", c.currCtrl.GetRates).Methods(http.MethodGet)
+
+	c.router.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
 	return c.router
 }
